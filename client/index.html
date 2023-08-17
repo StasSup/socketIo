@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doc</title>
+</head>
+<body>
+
+<textarea class="input"></textarea>
+<button class="btn">Button</button>
+</body>
+
+<script src="http://localhost:3001/socket.io/socket.io.js"></script>
+<script>
+var socket = io('http://localhost:3001');
+
+const clickhandler = () => {
+  const input = document.querySelector('.input')
+  socket.emit('message', input.value);
+}
+
+document.querySelector(".btn").addEventListener('click', clickhandler)
+</script>
+</html>
